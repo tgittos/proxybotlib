@@ -1,5 +1,5 @@
 using System;
-namespace starcraftbot.proxybot
+namespace ProxyBotLib.Data
 {
 	/// <summary> Stores tile information about a map in StarCraft.
 	/// 
@@ -7,7 +7,7 @@ namespace starcraftbot.proxybot
 	/// resolution than the size tile in this class. Each tile is actually
 	/// a 4x4 grid, but this has been abstracted away for simplicity for now.
 	/// </summary>
-	public class Map
+	public class MapData
 	{
 		virtual public System.String MapName
 		{
@@ -78,7 +78,7 @@ namespace starcraftbot.proxybot
 		/// Data is a character array where each tile is represented by 3 characters, 
 		/// which specific height, buildable, walkable.
 		/// </param>
-		public Map(System.String mapData)
+		public MapData(System.String mapData)
 		{
 			System.String[] map = mapData.Split(":".ToCharArray());
 			System.String data = map[3];

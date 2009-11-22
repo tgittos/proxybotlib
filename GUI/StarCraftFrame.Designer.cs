@@ -1,4 +1,4 @@
-﻿namespace StarCraftBot_net.proxybot
+﻿namespace ProxyBotLib.GUI
 {
     partial class StarCraftFrame
     {

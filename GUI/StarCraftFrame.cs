@@ -5,9 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using starcraftbot.proxybot;
+using ProxyBotLib;
+using ProxyBotLib.GUI;
+using ProxyBotLib.Types;
+using ProxyBotLib.Data;
 
-namespace StarCraftBot_net.proxybot
+namespace ProxyBotLib.GUI
 {
     public partial class StarCraftFrame : Form
     {
@@ -60,7 +63,7 @@ namespace StarCraftBot_net.proxybot
         private Bitmap CreateBackground()
         {
             // tile set
-            Map map = proxyBot.Map;
+            MapData map = proxyBot.Map;
 
             Bitmap bg = new Bitmap(map.MapWidth * tileSize, map.MapHeight * tileSize);
             Graphics g;
@@ -75,7 +78,7 @@ namespace StarCraftBot_net.proxybot
                     int height = map.getHeight(x, y);
                     Brush c = GetMapBackColor(walkable, buildable, height);
                     //int c = (70 * walkable + 60 * buildable + 50 * height);
-                    //SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(c, c, (int)(c * 3 / 4)));
+                    //GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(c, c, (int)(c * 3 / 4)));
                     g.FillRectangle(c, x * tileSize, panelHeight + y * tileSize, tileSize, tileSize);
                 }
             }
@@ -116,8 +119,8 @@ namespace StarCraftBot_net.proxybot
             }
 
             // status panel
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(255, 255, 255));
-            g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 0, 0, Width, panelHeight);
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(255, 255, 255));
+            g.FillRectangle(GraphicsManager.manager.GetPaint(g), 0, 0, Width, panelHeight);
 
             return bg;
         }
@@ -165,28 +168,28 @@ namespace StarCraftBot_net.proxybot
             }
 
             // minerals
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 255));
-            g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 5, 10, 10, 10);
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
-            g.DrawRectangle(SupportClass.GraphicsManager.manager.GetPen(g), 5, 10, 10, 10);
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 255));
+            g.FillRectangle(GraphicsManager.manager.GetPaint(g), 5, 10, 10, 10);
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
+            g.DrawRectangle(GraphicsManager.manager.GetPen(g), 5, 10, 10, 10);
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
             //UPGRADE_TODO: Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaawtGraphicsdrawString_javalangString_int_int'"
-            g.DrawString("" + proxyBot.Player.Minerals, SupportClass.GraphicsManager.manager.GetFont(g), SupportClass.GraphicsManager.manager.GetBrush(g), 25, 20 - SupportClass.GraphicsManager.manager.GetFont(g).Height);
+            g.DrawString("" + proxyBot.Player.Minerals, GraphicsManager.manager.GetFont(g), GraphicsManager.manager.GetBrush(g), 25, 20 - GraphicsManager.manager.GetFont(g).Height);
 
             // gas
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 255, 0));
-            g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 105, 10, 10, 10);
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
-            g.DrawRectangle(SupportClass.GraphicsManager.manager.GetPen(g), 105, 10, 10, 10);
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 255, 0));
+            g.FillRectangle(GraphicsManager.manager.GetPaint(g), 105, 10, 10, 10);
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
+            g.DrawRectangle(GraphicsManager.manager.GetPen(g), 105, 10, 10, 10);
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
             //UPGRADE_TODO: Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaawtGraphicsdrawString_javalangString_int_int'"
-            g.DrawString("" + proxyBot.Player.Gas, SupportClass.GraphicsManager.manager.GetFont(g), SupportClass.GraphicsManager.manager.GetBrush(g), 125, 20 - SupportClass.GraphicsManager.manager.GetFont(g).Height);
+            g.DrawString("" + proxyBot.Player.Gas, GraphicsManager.manager.GetFont(g), GraphicsManager.manager.GetBrush(g), 125, 20 - GraphicsManager.manager.GetFont(g).Height);
 
             // supply
             /*
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
+            GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
             //UPGRADE_TODO: Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaawtGraphicsdrawString_javalangString_int_int'"
-            g.DrawString((proxyBot.Player.SupplyUsed / 2) + "/" + (proxyBot.Player.SupplyTotal / 2), SupportClass.GraphicsManager.manager.GetFont(g), SupportClass.GraphicsManager.manager.GetBrush(g), 200, 20 - SupportClass.GraphicsManager.manager.GetFont(g).Height);
+            g.DrawString((proxyBot.Player.SupplyUsed / 2) + "/" + (proxyBot.Player.SupplyTotal / 2), GraphicsManager.manager.GetFont(g), GraphicsManager.manager.GetBrush(g), 200, 20 - GraphicsManager.manager.GetFont(g).Height);
             */
 
             // unit IDs
@@ -258,7 +261,8 @@ namespace StarCraftBot_net.proxybot
 		private void  StarCraftFrame_Closing_EXIT_ON_CLOSE(System.Object sender, System.ComponentModel.CancelEventArgs  e)
 		{
 			e.Cancel = true;
-			SupportClass.CloseOperation((System.Windows.Forms.Form) sender, 3);
+            ((Form)sender).Dispose();
+            Application.Exit();
 		}
     }
 }

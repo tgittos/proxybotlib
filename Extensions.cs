@@ -4,7 +4,7 @@ using System.Text;
 using System.Collections;
 using System.Collections.Specialized;
 
-namespace StarCraftBot_net
+namespace ProxyBotLib
 {
     public static class Extensions
     {
@@ -76,6 +76,11 @@ namespace StarCraftBot_net
                 result = "null";
 
             return result;
+	    }
+        public static void WriteStackTrace(this Exception throwable, System.IO.TextWriter stream)
+	    {
+		    stream.Write(throwable.StackTrace);
+		    stream.Flush();
 	    }
     }
 }

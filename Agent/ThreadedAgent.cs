@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using starcraftbot.proxybot;
+using ProxyBotLib.Threading;
 
-namespace StarCraftBot_net.proxybot.Agent
+namespace ProxyBotLib.Agent
 {
-    public class ThreadedAgent : SupportClass.ThreadClass
+    public class ThreadedAgent : ThreadClass
 	{
         private IAgent agent;
         private ProxyBot proxy;

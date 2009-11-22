@@ -1,5 +1,6 @@
 using System;
-namespace starcraftbot.proxybot
+using ProxyBotLib.Types;
+namespace ProxyBotLib.Data
 {
 	/// <summary> Stores information about the player (Bot)
 	/// 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using starcraftbot.proxybot;
 using System.Collections;
+using ProxyBotLib;
 
-namespace StarCraftBot_net
+namespace ProxyBotLib
 {
     public static class Commands
     {

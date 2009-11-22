@@ -126,26 +126,28 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="proxybot_ns\Agent\IAgent.cs" />
-    <Compile Include="proxybot_ns\Agent\ThreadedAgent.cs" />
-    <Compile Include="proxybot_ns\Constants.cs" />
-    <Compile Include="proxybot_ns\GUI\Map.cs" />
-    <Compile Include="proxybot_ns\Map.cs" />
-    <Compile Include="proxybot_ns\Player.cs" />
+    <Compile Include="Agent\IAgent.cs" />
+    <Compile Include="Agent\ThreadedAgent.cs" />
+    <Compile Include="Types\Constants.cs" />
+    <Compile Include="GUI\GraphicsManager.cs" />
+    <Compile Include="GUI\Map.cs" />
+    <Compile Include="Data\MapData.cs" />
+    <Compile Include="Data\Player.cs" />
     <Compile Include="ProxyBot.cs" />
-    <Compile Include="proxybot_ns\StarCraftAgent.cs" />
-    <Compile Include="proxybot_ns\StarCraftFrame.cs">
+    <Compile Include="Test\StarCraftAgent.cs" />
+    <Compile Include="GUI\StarCraftFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="proxybot_ns\StarCraftFrame.Designer.cs">
+    <Compile Include="GUI\StarCraftFrame.Designer.cs">
       <DependentUpon>StarCraftFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="proxybot_ns\StartingLocation.cs" />
-    <Compile Include="proxybot_ns\TechType.cs" />
-    <Compile Include="proxybot_ns\Unit.cs" />
-    <Compile Include="proxybot_ns\UnitType.cs" />
-    <Compile Include="proxybot_ns\UpgradeType.cs" />
-    <Compile Include="SupportClass.cs" />
+    <Compile Include="Data\StartingLocation.cs" />
+    <Compile Include="Types\TechType.cs" />
+    <Compile Include="Threading\IThreadRunnable.cs" />
+    <Compile Include="Threading\ThreadClass.cs" />
+    <Compile Include="Data\Unit.cs" />
+    <Compile Include="Types\UnitType.cs" />
+    <Compile Include="Types\UpgradeType.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -175,7 +177,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="proxybot_ns\StarCraftFrame.resx">
+    <EmbeddedResource Include="GUI\StarCraftFrame.resx">
       <DependentUpon>StarCraftFrame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

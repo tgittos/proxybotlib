@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-namespace starcraftbot.proxybot
+using ProxyBotLib.Types;
+namespace ProxyBotLib.Data
 {
 	/// <summary> Represents a unit in StarCraft.
 	/// 

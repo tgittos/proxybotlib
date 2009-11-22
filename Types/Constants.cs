@@ -1,5 +1,5 @@
 using System;
-namespace starcraftbot.proxybot
+namespace ProxyBotLib.Types
 {
 	/// <summary> Contains constant and enumerations values for:
 	/// - races

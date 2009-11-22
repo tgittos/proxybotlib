@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
-using StarCraftBot_net.proxybot;
-using starcraftbot.proxybot;
 using System.Net.Sockets;
 using System.IO;
 using System.Text;
 using System.Collections;
-using StarCraftBot_net.proxybot.Agent;
+using ProxyBotLib.Agent;
+using ProxyBotLib.Types;
+using ProxyBotLib.Data;
 
-namespace StarCraftBot_net
+namespace ProxyBotLib
 {
 	/// <summary> StarCraft AI Interface.
 	/// 
@@ -20,7 +20,7 @@ namespace StarCraftBot_net
 	/// </summary>
 	public class ProxyBot
 	{
-		virtual public Map Map
+		virtual public MapData Map
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace StarCraftBot_net
 		public int port = 13337;
 		
 		/// <summary>map information </summary>
-		private Map map;
+		private MapData map;
 		
 		/// <summary>player (bot) attributes </summary>
 		private Player player = new Player();
@@ -143,7 +143,7 @@ namespace StarCraftBot_net
 
         private IAgent agent;
 
-        private StarCraftBot_net.proxybot.GUI.Map guiMap;
+        private ProxyBotLib.GUI.Map guiMap;
 
 		public ProxyBot(IAgent pAgent)
 		{
@@ -196,7 +196,7 @@ namespace StarCraftBot_net
             //Set data
 			startingLocations = StartingLocation.getLocations(locationData);
 			unitTypes = UnitType.getUnitTypes(unitTypeData);
-			map = new Map(mapData);
+			map = new MapData(mapData);
 			techTypes = TechType.getTechTypes(techTypeData);
 			upgradeTypes = UpgradeType.getUpgradeTypes(upgradeTypeData);
 			
@@ -209,7 +209,7 @@ namespace StarCraftBot_net
 			// display game state?
 			if (showGUI)
 			{
-                guiMap = new StarCraftBot_net.proxybot.GUI.Map(this);
+                guiMap = new ProxyBotLib.GUI.Map(this);
                 guiMap.Run();
 			}
 

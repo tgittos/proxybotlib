@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using starcraftbot.proxybot;
 using System.Threading;
 using System.Windows.Forms;
 using System.ComponentModel;
+using ProxyBotLib;
+using ProxyBotLib.Threading;
 
-namespace StarCraftBot_net.proxybot.GUI
+namespace ProxyBotLib.GUI
 {
-    class Map : SupportClass.ThreadClass
+    class Map : ThreadClass
 	{
         private Thread formThread;
         private ProxyBot proxyBot;

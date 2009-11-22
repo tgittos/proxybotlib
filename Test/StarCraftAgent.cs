@@ -1,9 +1,10 @@
 using System;
-//UPGRADE_TODO: The type 'starcraftbot.proxybot.Constants.Order' could not be found. If it was not included in the conversion, there may be compiler issues. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1262'"
-using Order = starcraftbot.proxybot.Constants.Order;
-using StarCraftBot_net;
-using StarCraftBot_net.proxybot.Agent;
-namespace starcraftbot.proxybot
+using Order = ProxyBotLib.Types.Constants.Order;
+using ProxyBotLib.Agent;
+using ProxyBotLib;
+using ProxyBotLib.Types;
+using ProxyBotLib.Data;
+namespace ProxyBotLib.Test
 {
 	/// <summary> Throw in your bot code here.</summary>
 	internal class StarCraftAgent : IAgent
@@ -50,7 +51,7 @@ namespace starcraftbot.proxybot
 								if (patch.Type.ID == Constants.Resource_Mineral_Field)
 								{
 									
-									double distance = (0.5 + SupportClass.Random.NextDouble()) * unit.distance(patch);
+									double distance = (0.5 + new Random().NextDouble()) * unit.distance(patch);
 									if (distance < closest)
 									{
 										closest = distance;

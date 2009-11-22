@@ -1,0 +1,7 @@
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBotLib.csproj.GenerateResource.Cache
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBot.dll
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBot.pdb
+C:\Projects\Personal\starcraft\StarProxyBot_net\ProxyBot.dll
+C:\Projects\Personal\starcraft\StarProxyBot_net\ProxyBot.pdb
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBotLib.GUI.StarCraftFrame.resources
