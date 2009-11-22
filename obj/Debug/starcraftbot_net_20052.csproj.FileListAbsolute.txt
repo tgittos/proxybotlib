@@ -1,0 +1,14 @@
+H:\BWAiProject\StarProxyBot_net\obj\Debug\ResolveAssemblyReference.cache
+H:\BWAiProject\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.exe
+H:\BWAiProject\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.pdb
+H:\BWAiProject\StarProxyBot_net\starcraftbot_net_20052.exe
+H:\BWAiProject\StarProxyBot_net\starcraftbot_net_20052.pdb
+H:\BWAiProject\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.proxybot.StarCraftFrame.resources
+H:\BWAiProject\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.csproj.GenerateResource.Cache
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.exe
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.pdb
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.proxybot.StarCraftFrame.resources
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\starcraftbot_net_20052.csproj.GenerateResource.Cache
+C:\Projects\Personal\starcraft\StarProxyBot_net\starcraftbot_net_20052.exe
+C:\Projects\Personal\starcraft\StarProxyBot_net\starcraftbot_net_20052.pdb

@@ -1,0 +1,464 @@
+﻿<ConversionLog>
+    <Settings>
+        <Setting
+            Name = "LogFile"
+            Value = "starcraftbot_net_20052.xml"
+        />
+        <Setting
+            Name = "ProjectName"
+            Value = "starcraftbot_net_20052"
+        />
+        <Setting
+            Name = "StartTime"
+            Value = "Saturday, November 14, 2009 16:03:03"
+        />
+        <Setting
+            Name = "OutputDir"
+            Value = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET"
+        />
+        <Setting
+            Name = "ProjectPath"
+            Value = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot"
+        />
+    </Settings>
+    <Root>
+        <Directory Name = "proxybot" >
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\Command.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\Command.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.Command" >
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\Constants.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\Constants.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.Constants" >
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\Map.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\Map.cs"
+            />
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\Player.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\Player.cs"
+            />
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\ProxyBot.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\ProxyBot.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.ProxyBot" >
+                    <Section Name = "start()" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaioPrintStreamprintln_javalangObject"
+                            Severity = "2"
+                        >Method 'java.io.PrintStream.println' was converted to 'System.Console.Out.WriteLine' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaioPrintStreamprintln_javalangObject"
+                            Severity = "2"
+                        >Method 'java.io.PrintStream.println' was converted to 'System.Console.Out.WriteLine' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaioPrintStreamprintln_javalangObject"
+                            Severity = "2"
+                        >Method 'java.io.PrintStream.println' was converted to 'System.Console.Out.WriteLine' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1092"
+                            Severity = "2"
+                        >The differences in the expected value  of parameters for constructor 'java.io.BufferedReader.BufferedReader'  may cause compilation errors. </Issue>
+                        <Issue
+                            Type = "Runtime"
+                            Number = "1181"
+                            Severity = "2"
+                        >At least one expression was used more than once in the target code.</Issue>
+                    </Section>
+                    <Section Name = "doCommand(StarCraftCommand,int,int,int,int)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for method 'java.util.ArrayList.add' may return a different value.</Issue>
+                    </Section>
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javautilHashMap"
+                            Severity = "2"
+                        >Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1262"
+                            Severity = "2"
+                        >The type 'starcraftbot.proxybot.Command.StarCraftCommand' could not be found. If it was not included in the conversion, there may be compiler issues.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\StarCraftAgent.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\StarCraftAgent.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.StarCraftAgent" >
+                    <Section Name = "start()" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javalangThreadsleep_long"
+                            Severity = "2"
+                        >Method 'java.lang.Thread.sleep' was converted to 'System.Threading.Thread.Sleep' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for field 'java.lang.Double.MAX_VALUE' may return a different value.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1262"
+                            Severity = "2"
+                        >The type 'starcraftbot.proxybot.Constants.Order' could not be found. If it was not included in the conversion, there may be compiler issues.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\StarCraftFrame.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\StarCraftFrame.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.StarCraftFrame" >
+                    <Section Name = "StarCraftFrame()" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            Severity = "2"
+                        >Method 'javax.swing.JComponent.setPreferredSize' was converted to 'System.Windows.Forms.Control.Size' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtContaineradd_javaawtComponent"
+                            Severity = "2"
+                        >Method 'java.awt.Container.add' was converted to 'System.Windows.Forms.ContainerControl.Controls.Add' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1000"
+                            LinkKeywordParam = "_javaawtWindowpack"
+                            Severity = "1"
+                        >Method 'java.awt.Window.pack' was not converted.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtComponentsetLocation_int_int"
+                            Severity = "2"
+                        >Method 'java.awt.Component.setLocation' was converted to 'System.Windows.Forms.Control.Location' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtComponentsetVisible_boolean"
+                            Severity = "2"
+                        >Method 'java.awt.Component.setVisible' was converted to 'System.Windows.Forms.Control.Visible' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1135"
+                            Severity = "2"
+                        >'System.Windows.Forms.Application.Run' must be called to start a main form.</Issue>
+                    </Section>
+                    <Section Name = "start()" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javalangThreadsleep_long"
+                            Severity = "2"
+                        >Method 'java.lang.Thread.sleep' was converted to 'System.Threading.Thread.Sleep' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtComponentrepaint"
+                            Severity = "2"
+                        >Method 'java.awt.Component.repaint' was converted to 'System.Windows.Forms.Control.Refresh' which has a different behavior.</Issue>
+                    </Section>
+                    <Section Name = "paint(java.awt.Graphics)" >
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtGraphicsdrawString_javalangString_int_int"
+                            Severity = "2"
+                        >Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtGraphicsdrawString_javalangString_int_int"
+                            Severity = "2"
+                        >Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javaawtGraphicsdrawString_javalangString_int_int"
+                            Severity = "2"
+                        >Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\StartingLocation.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\StartingLocation.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.StartingLocation" >
+                    <Section Name = "getLocations(java.lang.String)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for method 'java.util.ArrayList.add' may return a different value.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\TechType.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\TechType.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.TechType" >
+                    <Section Name = "getTechTypes(java.lang.String)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for method 'java.util.ArrayList.add' may return a different value.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\Unit.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\Unit.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.Unit" >
+                    <Section Name = "getUnits(java.lang.String,java.util.HashMap)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for method 'java.util.ArrayList.add' may return a different value.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javautilHashMap"
+                            Severity = "2"
+                        >Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\UnitType.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\UnitType.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.UnitType" >
+                    <Section Name = "getUnitTypes(java.lang.String)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javautilHashMap"
+                            Severity = "2"
+                        >Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javautilHashMap"
+                            Severity = "2"
+                        >Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                    <Section Name = "Declarations" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1073"
+                            LinkKeywordParam = "_javautilHashMap"
+                            Severity = "2"
+                        >Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior.</Issue>
+                    </Section>
+                </Class>
+            </File>
+            <File
+                OldPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\proxybot\UpgradeType.java"
+                NewPath = "C:\Documents and Settings\Ignas\workspace\Bot\src\starcraftbot\starcraftbot_net_20052.NET\UpgradeType.cs"
+            >
+                <Class Name = "starcraftbot.proxybot.UpgradeType" >
+                    <Section Name = "getUpgradeTypes(java.lang.String)" >
+                        <Issue
+                            Type = "ToDo"
+                            Number = "1043"
+                            Severity = "2"
+                        >The equivalent in .NET for method 'java.util.ArrayList.add' may return a different value.</Issue>
+                        <Issue
+                            Type = "Compile"
+                            Number = "1156"
+                            Severity = "1"
+                        >The following fragment of code could not be parsed and was not converted.</Issue>
+                    </Section>
+                </Class>
+            </File>
+        </Directory>
+        <Issue
+            Type = "Global Warning"
+            Number = "1274"
+            Severity = "2"
+        >Interaction between members of a class may differ because their execution sequence is different. </Issue>
+        <Issue
+            Type = "Global Note"
+            Number = "1024"
+            Severity = "3"
+        >Anonymous classes were converted to nested classes.</Issue>
+        <Issue
+            Type = "Global Warning"
+            Number = "1225"
+            Severity = "2"
+        >Type castings between primitive types may have different behavior.</Issue>
+    </Root>
+</ConversionLog>
+
