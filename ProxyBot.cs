@@ -309,13 +309,5 @@ namespace ProxyBotLib
             enemy.PlayerID = enemyID;
             enemy.Race = enemyRace;
         }
-		
-		//UPGRADE_ISSUE: The following fragment of code could not be parsed and was not converted. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1156'"
-        /*
-        public Dictionary<int, UnitType> getUnitTypes()
-        {
-            return unitTypes;
-        }
-         */
 	}
 }
