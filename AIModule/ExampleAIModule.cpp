@@ -559,6 +559,11 @@ void ExampleAIModule::onFrame()
 
 void handleCommand(int command, int unitID, int arg0, int arg1, int arg2)
 {
+	if (command == 41) {
+		Broodwar->sendText("Set game speed: %d", unitID);
+		Broodwar->setLocalSpeed(unitID);
+		return;
+	}	
 
 	// check that the unit ID is valid
 	Unit* unit = unitIDMap[unitID];

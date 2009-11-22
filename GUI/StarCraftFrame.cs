@@ -22,7 +22,6 @@ namespace ProxyBotLib.GUI
 
             proxyBot = pProxy;
 
-            SetSize();
             this.Paint += new System.Windows.Forms.PaintEventHandler(StarCraftFrame_Paint);
             this.Load += new EventHandler(StarCraftFrame_Load);
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -257,12 +256,13 @@ namespace ProxyBotLib.GUI
         }
 		
 
-
+        /*
 		private void  StarCraftFrame_Closing_EXIT_ON_CLOSE(System.Object sender, System.ComponentModel.CancelEventArgs  e)
 		{
 			e.Cancel = true;
             ((Form)sender).Dispose();
             Application.Exit();
 		}
+         */
     }
 }

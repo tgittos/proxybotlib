@@ -52,6 +52,7 @@ namespace ProxyBotLib
             useTech,
             useTechPosition,
             useTechTarget,
+            gameSpeed
         }
         public struct Command
         {
@@ -440,6 +441,15 @@ namespace ProxyBotLib
         public static void useTech(this ProxyBot bot, int unitID, int techTypeID, int targetID)
         {
             bot.doCommand(StarCraftCommand.useTechTarget, unitID, techTypeID, targetID, 0);
+        }
+
+        /// <summary>
+        /// Set the game speed
+        /// </summary>
+        /// <param name="speed"></param>
+        public static void setGameSpeed(this ProxyBot bot, int speed)
+        {
+            bot.doCommand(StarCraftCommand.gameSpeed, speed, 0, 0, 0);
         }
 
         /// <summary> Adds a command to the command queue.

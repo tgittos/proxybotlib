@@ -98,6 +98,10 @@ namespace ProxyBotLib
 		
 		/// <summary>turn on complete information </summary>
 		public bool completeInformation = true;
+
+        public bool logCommands = true;
+
+        public bool terrainAnalysis = false;
 		
 		/// <summary>log a verbose amount of data </summary>
 		public bool verboseLogging = false;
@@ -180,7 +184,10 @@ namespace ProxyBotLib
 			String playerData = starcraftStream.ReadLine();
 			
 			//Send bot options to StarCraft
-			String botOptions = (allowUserControl ? "1" : "0") + (completeInformation ? "1" : "0");
+			String botOptions = (allowUserControl ? "1" : "0") + 
+                                (completeInformation ? "1" : "0") +
+                                (logCommands ? "1" : "0") +
+                                (terrainAnalysis ? "1" : "0");
             byte[] optionsData = Encoding.ASCII.GetBytes(botOptions);
             outputStream.Write(optionsData, 0, optionsData.Length);
 
@@ -190,6 +197,12 @@ namespace ProxyBotLib
 			String unitTypeData = starcraftStream.ReadLine();
 			String locationData = starcraftStream.ReadLine();
 			String mapData = starcraftStream.ReadLine();
+            if (terrainAnalysis)
+            {
+                //Analyse terrain
+                String chokeData = starcraftStream.ReadLine();
+                String basesData = starcraftStream.ReadLine();
+            }
 			String techTypeData = starcraftStream.ReadLine();
 			String upgradeTypeData = starcraftStream.ReadLine();
 

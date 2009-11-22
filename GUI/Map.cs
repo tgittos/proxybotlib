@@ -14,6 +14,7 @@ namespace ProxyBotLib.GUI
         private Thread formThread;
         private ProxyBot proxyBot;
         private StarCraftFrame Frame;
+        private SpeedFrame speedFrame;
 
         public delegate void RefreshDelegate();
 
@@ -24,8 +25,10 @@ namespace ProxyBotLib.GUI
 		override public void Run()
 		{
             Frame = new StarCraftFrame(proxyBot);
+            speedFrame = new SpeedFrame(proxyBot);
             formThread = new Thread(delegate()
             {
+                speedFrame.Show();
                 Application.Run(Frame);
             });
             //Terminate with application

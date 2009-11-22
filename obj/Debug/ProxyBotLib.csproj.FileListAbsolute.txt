@@ -7,3 +7,4 @@ C:\Projects\Personal\starcraft\StarProxyBot_net\ProxyBot.pdb
 C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBotLib.GUI.StarCraftFrame.resources
 C:\Projects\Personal\starcraft\StarProxyBot_net\obj\ProxyBot.dll
 C:\Projects\Personal\starcraft\StarProxyBot_net\obj\ProxyBot.pdb
+C:\Projects\Personal\starcraft\StarProxyBot_net\obj\Debug\ProxyBotLib.GUI.SpeedFrame.resources

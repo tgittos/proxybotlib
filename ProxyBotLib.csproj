@@ -16,7 +16,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>StarCraftBot_net</RootNamespace>
+    <RootNamespace>ProxyBotLib</RootNamespace>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
@@ -128,6 +128,12 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Agent\IAgent.cs" />
     <Compile Include="Agent\ThreadedAgent.cs" />
+    <Compile Include="GUI\SpeedFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SpeedFrame.Designer.cs">
+      <DependentUpon>SpeedFrame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Types\Constants.cs" />
     <Compile Include="GUI\GraphicsManager.cs" />
     <Compile Include="GUI\Map.cs" />
@@ -177,12 +183,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GUI\SpeedFrame.resx">
+      <DependentUpon>SpeedFrame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\StarCraftFrame.resx">
       <DependentUpon>StarCraftFrame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="README" />
+    <None Include="README.markdown" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AIModule\ExampleAIModule.cpp" />
