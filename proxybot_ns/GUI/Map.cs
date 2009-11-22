@@ -4,12 +4,17 @@ using System.Text;
 using starcraftbot.proxybot;
 using System.Threading;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace StarCraftBot_net.proxybot.GUI
 {
     class Map : SupportClass.ThreadClass
 	{
-        ProxyBot proxyBot;
+        private Thread formThread;
+        private ProxyBot proxyBot;
+        private StarCraftFrame Frame;
+
+        public delegate void RefreshDelegate();
 
         public Map(ProxyBot pProxy)
 		{
@@ -17,15 +22,23 @@ namespace StarCraftBot_net.proxybot.GUI
 		}
 		override public void Run()
 		{
-            StarCraftFrame frame;
-            Thread formThread = new Thread(delegate()
+            Frame = new StarCraftFrame(proxyBot);
+            formThread = new Thread(delegate()
             {
-                frame = new StarCraftFrame(proxyBot);
-                Application.Run(frame);
+                Application.Run(Frame);
             });
             //Terminate with application
             formThread.IsBackground = true;
             formThread.Start();
 		}
+        private void refreshMap()
+        {
+            Frame.Refresh();
+        }
+        public void Refresh()
+        {
+            RefreshDelegate d = new RefreshDelegate(refreshMap);
+            Frame.Invoke(d);
+        }
 	}
 }

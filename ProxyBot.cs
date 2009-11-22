@@ -143,6 +143,8 @@ namespace StarCraftBot_net
 
         private IAgent agent;
 
+        private StarCraftBot_net.proxybot.GUI.Map guiMap;
+
 		public ProxyBot(IAgent pAgent)
 		{
             agent = pAgent;
@@ -207,19 +209,24 @@ namespace StarCraftBot_net
 			// display game state?
 			if (showGUI)
 			{
-                new StarCraftBot_net.proxybot.GUI.Map(this).Run();
+                guiMap = new StarCraftBot_net.proxybot.GUI.Map(this);
+                guiMap.Run();
 			}
 
             //Start the agent
-            new ThreadedAgent(agent, this).Start();
+            if (runAgent)
+            {
+                new ThreadedAgent(agent, this).Start();
+            }
 			
 			// begin the communication loop
 			while (playerData != null)
 			{
 				String unitUpdateData = starcraftStream.ReadLine();
                 String playerUpdateData = unitUpdateData.Split(':')[0];
-				// update game state
-                
+				
+                // update game state
+                if (guiMap != null) guiMap.Refresh();
 				player.update(playerUpdateData);
 				units = Unit.getUnits(unitUpdateData, unitTypes);
 				if (verboseLogging)
