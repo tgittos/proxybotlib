@@ -46,7 +46,8 @@ public class SupportClass
 	/// </summary>
 	/// <param name="c">The collection to convert to string.</param>
 	/// <returns>A string representation of the specified collection.</returns>
-	public static System.String CollectionToString(System.Collections.ICollection c)
+	/*
+    public static System.String CollectionToString(System.Collections.ICollection c)
 	{
 		System.Text.StringBuilder s = new System.Text.StringBuilder();
 		
@@ -100,13 +101,14 @@ public class SupportClass
 			s.Insert(0, "null");
 		return s.ToString();
 	}
-
+    */
 	/// <summary>
 	/// Tests if the specified object is a collection and converts it to its string representation.
 	/// </summary>
 	/// <param name="obj">The object to convert to string</param>
 	/// <returns>A string representation of the specified object.</returns>
-	public static System.String CollectionToString(System.Object obj)
+	/*
+    public static System.String CollectionToString(System.Object obj)
 	{
 		System.String result = "";
 
@@ -122,7 +124,8 @@ public class SupportClass
 
 		return result;
 	}
-	/*******************************/
+	*/
+    /*******************************/
 	/// <summary>
 	/// Support class used to handle threads
 	/// </summary>

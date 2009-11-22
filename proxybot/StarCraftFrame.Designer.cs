@@ -1,4 +1,4 @@
-﻿namespace starcraftbot_net_20052.proxybot
+﻿namespace StarCraftBot_net.proxybot
 {
     partial class StarCraftFrame
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using starcraftbot.proxybot;
 
-namespace starcraftbot_net_20052.proxybot
+namespace StarCraftBot_net.proxybot
 {
     public partial class StarCraftFrame : Form
     {

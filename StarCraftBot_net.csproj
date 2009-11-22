@@ -16,7 +16,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
-    <RootNamespace>starcraftbot_net_20052</RootNamespace>
+    <RootNamespace>StarCraftBot_net</RootNamespace>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
@@ -42,6 +42,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>.\</OutputPath>
@@ -96,6 +97,9 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -117,11 +121,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="proxybot\Command.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="proxybot\Agent\ThreadedAgent.cs" />
     <Compile Include="proxybot\Constants.cs" />
+    <Compile Include="proxybot\GUI\Map.cs" />
     <Compile Include="proxybot\Map.cs" />
     <Compile Include="proxybot\Player.cs" />
-    <Compile Include="proxybot\ProxyBot.cs" />
+    <Compile Include="ProxyBot.cs" />
     <Compile Include="proxybot\StarCraftAgent.cs" />
     <Compile Include="proxybot\StarCraftFrame.cs">
       <SubType>Form</SubType>
@@ -135,9 +142,6 @@
     <Compile Include="proxybot\UnitType.cs" />
     <Compile Include="proxybot\UpgradeType.cs" />
     <Compile Include="SupportClass.cs" />
-    <None Include="_ConversionReport.htm">
-      <SubType>Preview</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

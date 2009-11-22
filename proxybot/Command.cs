@@ -52,51 +52,7 @@ namespace starcraftbot.proxybot
 	/// </summary>
 	public class Command
 	{
-        public enum StarCraftCommand
-		{
-	
-			none, 
-			attackMove, 
-			attackUnit, 
-			rightClick, 
-			rightClickUnit, 
-			train, 
-			build, 
-			buildAddon, 
-			research, 
-			upgrade, 
-			stop, 
-			holdPosition, 
-			patrol, 
-			follow, 
-			setRallyPosition, 
-			setRallyUnit, 
-			repair, 
-			morph, 
-			burrow, 
-			unburrow, 
-			siege, 
-			unsiege, 
-			cloak, 
-			decloak, 
-			lift, 
-			land, 
-			load, 
-			unload, 
-			unloadAll, 
-			unloadAllPosition, 
-			cancelConstruction, 
-			haltConstruction, 
-			cancelMorph, 
-			cancelTrain, 
-			cancelTrainSlot, 
-			cancelAddon, 
-			cancelResearch, 
-			cancelUpgrade, 
-			useTech, 
-			useTechPosition, 
-			useTechTarget,
-		}
+        
 		virtual public int UnitID
 		{
 			get
