@@ -19,11 +19,11 @@ namespace StarCraftBot_net.proxybot
 
             proxyBot = pProxy;
 
-
+            SetSize();
             this.Paint += new System.Windows.Forms.PaintEventHandler(StarCraftFrame_Paint);
             this.Load += new EventHandler(StarCraftFrame_Load);
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MinimizeBox = false;
+            this.MinimizeBox = true;
             this.MaximizeBox = false;
             this.ControlBox = false;
         }
@@ -48,7 +48,7 @@ namespace StarCraftBot_net.proxybot
 		private int panelHeight = 30;
 		
 		/// <summary>font size for unit ids </summary>
-		private int textSize = 8;
+		private int textSize = 6;
 		
 
 
@@ -57,29 +57,15 @@ namespace StarCraftBot_net.proxybot
             SetSize();
         }
 
-        private void SetSize()
+        private Bitmap CreateBackground()
         {
-            int widthW = proxyBot.Map.MapWidth;
-            int heightW = proxyBot.Map.MapHeight;
-            ClientSize = new System.Drawing.Size(tileSize * widthW, tileSize * heightW + panelHeight);
-        }
-
-        void StarCraftFrame_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-            
-
-
-            System.Drawing.Graphics g = e.Graphics;
-
-            if (proxyBot.Units == null)
-            {
-                return;
-            }
-
-            SetSize();
-
             // tile set
             Map map = proxyBot.Map;
+
+            Bitmap bg = new Bitmap(map.MapWidth * tileSize, map.MapHeight * tileSize);
+            Graphics g;
+            g = Graphics.FromImage(bg);
+
             for (int y = 0; y < map.MapHeight; y++)
             {
                 for (int x = 0; x < map.MapWidth; x++)
@@ -129,6 +115,35 @@ namespace StarCraftBot_net.proxybot
                 }
             }
 
+            // status panel
+            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(255, 255, 255));
+            g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 0, 0, Width, panelHeight);
+
+            return bg;
+        }
+
+        private void SetSize()
+        {
+            int widthW = proxyBot.Map.MapWidth;
+            int heightW = proxyBot.Map.MapHeight;
+            ClientSize = new System.Drawing.Size(tileSize * widthW, tileSize * heightW + panelHeight);
+        }
+
+        void StarCraftFrame_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            System.Drawing.Graphics g = e.Graphics;
+
+            if (proxyBot.Units == null)
+            {
+                return;
+            }
+
+            //Draw the bg if we need one
+            if (this.BackgroundImage == null)
+            {
+                this.BackgroundImage = CreateBackground();
+            }
+
             // enemy units
             SolidBrush sb2 = new SolidBrush(System.Drawing.Color.FromArgb(255, 0, 0));
             foreach (Unit unit in proxyBot.Units)
@@ -149,10 +164,6 @@ namespace StarCraftBot_net.proxybot
                 }
             }
 
-            // status panel
-            SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(255, 255, 255));
-            g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 0, 0, Width, panelHeight);
-
             // minerals
             SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 255));
             g.FillRectangle(SupportClass.GraphicsManager.manager.GetPaint(g), 5, 10, 10, 10);
@@ -172,9 +183,11 @@ namespace StarCraftBot_net.proxybot
             g.DrawString("" + proxyBot.Player.Gas, SupportClass.GraphicsManager.manager.GetFont(g), SupportClass.GraphicsManager.manager.GetBrush(g), 125, 20 - SupportClass.GraphicsManager.manager.GetFont(g).Height);
 
             // supply
+            /*
             SupportClass.GraphicsManager.manager.SetColor(g, System.Drawing.Color.FromArgb(0, 0, 0));
             //UPGRADE_TODO: Method 'java.awt.Graphics.drawString' was converted to 'System.Drawing.Graphics.DrawString' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaawtGraphicsdrawString_javalangString_int_int'"
             g.DrawString((proxyBot.Player.SupplyUsed / 2) + "/" + (proxyBot.Player.SupplyTotal / 2), SupportClass.GraphicsManager.manager.GetFont(g), SupportClass.GraphicsManager.manager.GetBrush(g), 200, 20 - SupportClass.GraphicsManager.manager.GetFont(g).Height);
+            */
 
             // unit IDs
             if (drawIDs)
@@ -184,7 +197,11 @@ namespace StarCraftBot_net.proxybot
                 Font f = new System.Drawing.Font("ariel", textSize, System.Drawing.FontStyle.Regular);
                 foreach (Unit unit in proxyBot.Units)
                 {
-                    g.DrawString("" + unit.ID, f, sb4, unit.X * tileSize, panelHeight + unit.Y * tileSize + textSize - 2);
+                    if (unit.Type.ID != Constants.Resource_Mineral_Field && unit.Type.ID != Constants.Resource_Vespene_Geyser)
+                    {
+                        string name = unit.Type.Name.Replace("Terran", "T").Replace("Protoss", "P").Replace("Zerg", "Z");
+                        g.DrawString(name, f, sb4, unit.X * tileSize, panelHeight + unit.Y * tileSize + textSize - 2);
+                    }
                 }
             }
         }

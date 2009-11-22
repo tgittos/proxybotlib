@@ -218,6 +218,9 @@ namespace StarCraftBot_net
             {
                 new ThreadedAgent(agent, this).Start();
             }
+
+            DateTime lastRedraw = DateTime.Now;
+            TimeSpan redrawPeriod = new TimeSpan(0, 0, 1);
 			
 			// begin the communication loop
 			while (playerData != null)
@@ -226,7 +229,12 @@ namespace StarCraftBot_net
                 String playerUpdateData = unitUpdateData.Split(':')[0];
 				
                 // update game state
-                if (guiMap != null) guiMap.Refresh();
+                if (lastRedraw.Add(redrawPeriod) < DateTime.Now && guiMap != null)
+                {
+                    guiMap.Refresh();
+                    lastRedraw = DateTime.Now;
+                }
+
 				player.update(playerUpdateData);
 				units = Unit.getUnits(unitUpdateData, unitTypes);
 				if (verboseLogging)

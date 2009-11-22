@@ -38,7 +38,10 @@ namespace StarCraftBot_net.proxybot.GUI
         public void Refresh()
         {
             RefreshDelegate d = new RefreshDelegate(refreshMap);
-            Frame.Invoke(d);
+            if (Frame != null && Frame.Created)
+            {
+                Frame.Invoke(d);
+            }
         }
 	}
 }
