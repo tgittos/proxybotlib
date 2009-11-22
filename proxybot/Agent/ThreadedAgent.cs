@@ -7,16 +7,15 @@ namespace StarCraftBot_net.proxybot.Agent
 {
     public class ThreadedAgent : SupportClass.ThreadClass
 	{
-        private ProxyBot proxy;
+        private IAgent agent;
 
-        public ThreadedAgent(ProxyBot pProxy)
+        public ThreadedAgent(IAgent pAgent)
 		{
-            this.proxy = pProxy;
+            this.agent = pAgent;
 		}
 		override public void  Run()
 		{
-			StarCraftAgent agent = new StarCraftAgent(proxy);
-            agent.start();
+            agent.Start();
 		}
 	}
 }

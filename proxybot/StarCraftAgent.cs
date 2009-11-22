@@ -2,10 +2,11 @@ using System;
 //UPGRADE_TODO: The type 'starcraftbot.proxybot.Constants.Order' could not be found. If it was not included in the conversion, there may be compiler issues. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1262'"
 using Order = starcraftbot.proxybot.Constants.Order;
 using StarCraftBot_net;
+using StarCraftBot_net.proxybot.Agent;
 namespace starcraftbot.proxybot
 {
 	/// <summary> Throw in your bot code here.</summary>
-	public class StarCraftAgent
+	public class StarCraftAgent : IAgent
 	{
         private ProxyBot proxyBot;
 
@@ -14,7 +15,7 @@ namespace starcraftbot.proxybot
             this.proxyBot = pProxy;
         }
 		
-		public virtual void  start()
+		public virtual void Start()
 		{
 			int playerID = proxyBot.PlayerID;
 			

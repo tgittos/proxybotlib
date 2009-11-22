@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Text;
 using System.Collections;
+using StarCraftBot_net.proxybot.Agent;
 
 namespace StarCraftBot_net
 {
@@ -231,23 +232,7 @@ namespace StarCraftBot_net
 			// show information received from the StarCraft client
 			if (verboseLogging)
 			{
-				Console.Out.WriteLine(startingLocations.ToStarcraftString());
-				map.print();
-				
-				foreach(UnitType type in unitTypes.Values)
-				{
-					Console.Out.WriteLine(type);
-				}
-				
-				foreach(TechType type in techTypes)
-				{
-					System.Console.Out.WriteLine("Type: " + type);
-				}
-				
-				foreach(UpgradeType type in upgradeTypes)
-				{
-					System.Console.Out.WriteLine("Upgrade: " + type);
-				}
+                logStartStateToConsole();
 			}
 			
 			// display game state?
@@ -255,39 +240,22 @@ namespace StarCraftBot_net
 			{
                 new StarCraftBot_net.proxybot.GUI.Map().Run();
 			}
+
+            //Start the agent
+            StarCraftAgent agent = new StarCraftAgent(this);
+            new ThreadedAgent(agent).Start();
 			
 			// begin the communication loop
-			bool first = true;
-			while (true)
+			while (playerData != null)
 			{
 				String unitData = starcraftStream.ReadLine();
-				if (playerData == null)
-				{
-					break;
-				}
 				
 				// update game state
 				player.update(unitData);
 				units = Unit.getUnits(unitData, unitTypes);
 				if (verboseLogging)
 				{
-					foreach(Unit unit in units)
-					{
-						//UPGRADE_TODO: Method 'java.io.PrintStream.println' was converted to 'System.Console.Out.WriteLine' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaioPrintStreamprintln_javalangObject'"
-						Console.Out.WriteLine(unit);
-					}
-				}
-				
-				// run the agent?
-				if (first)
-				{
-					first = false;
-					
-					if (runAgent)
-					{
-                        //TODO: Fix this - Start the agent
-						new StarCraftBot_net.proxybot.Agent.ThreadedAgent(this).Start();
-					}
+                    logAllUnitsToConsole();
 				}
 				
 				// build the command send
@@ -314,6 +282,36 @@ namespace StarCraftBot_net
 				clientSocket.GetStream().Write(SupportClass.ToByteArray(temp_sbyteArray2), 0, temp_sbyteArray2.Length);
 			}
 		}
+
+        private void logAllUnitsToConsole()
+        {
+            foreach (Unit unit in units)
+            {
+                //UPGRADE_TODO: Method 'java.io.PrintStream.println' was converted to 'System.Console.Out.WriteLine' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javaioPrintStreamprintln_javalangObject'"
+                Console.Out.WriteLine(unit);
+            }
+        }
+
+        private void logStartStateToConsole()
+        {
+            Console.Out.WriteLine(startingLocations.ToStarcraftString());
+            map.print();
+
+            foreach (UnitType type in unitTypes.Values)
+            {
+                Console.Out.WriteLine(type);
+            }
+
+            foreach (TechType type in techTypes)
+            {
+                System.Console.Out.WriteLine("Type: " + type);
+            }
+
+            foreach (UpgradeType type in upgradeTypes)
+            {
+                System.Console.Out.WriteLine("Upgrade: " + type);
+            }
+        }
 
         private void configurePlayers(String playerData)
         {

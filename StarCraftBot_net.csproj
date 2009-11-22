@@ -123,6 +123,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="proxybot\Agent\IAgent.cs" />
     <Compile Include="proxybot\Agent\ThreadedAgent.cs" />
     <Compile Include="proxybot\Constants.cs" />
     <Compile Include="proxybot\GUI\Map.cs" />
