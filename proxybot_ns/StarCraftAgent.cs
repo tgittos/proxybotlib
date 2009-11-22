@@ -6,7 +6,7 @@ using StarCraftBot_net.proxybot.Agent;
 namespace starcraftbot.proxybot
 {
 	/// <summary> Throw in your bot code here.</summary>
-	public class StarCraftAgent : IAgent
+	internal class StarCraftAgent : IAgent
 	{
         private ProxyBot proxyBot;
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCraftBot_net", "StarCraftBot_net.csproj", "{B6BAAB4D-F73C-41DC-B829-D18E10D24DAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyBot", "ProxyBot.csproj", "{B6BAAB4D-F73C-41DC-B829-D18E10D24DAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

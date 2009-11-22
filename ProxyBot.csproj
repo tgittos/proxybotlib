@@ -8,14 +8,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>starcraftbot_net_20052</AssemblyName>
+    <AssemblyName>ProxyBot</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>StarCraftBot_net</RootNamespace>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -123,25 +123,25 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="proxybot\Agent\IAgent.cs" />
-    <Compile Include="proxybot\Agent\ThreadedAgent.cs" />
-    <Compile Include="proxybot\Constants.cs" />
-    <Compile Include="proxybot\GUI\Map.cs" />
-    <Compile Include="proxybot\Map.cs" />
-    <Compile Include="proxybot\Player.cs" />
+    <Compile Include="proxybot_ns\Agent\IAgent.cs" />
+    <Compile Include="proxybot_ns\Agent\ThreadedAgent.cs" />
+    <Compile Include="proxybot_ns\Constants.cs" />
+    <Compile Include="proxybot_ns\GUI\Map.cs" />
+    <Compile Include="proxybot_ns\Map.cs" />
+    <Compile Include="proxybot_ns\Player.cs" />
     <Compile Include="ProxyBot.cs" />
-    <Compile Include="proxybot\StarCraftAgent.cs" />
-    <Compile Include="proxybot\StarCraftFrame.cs">
+    <Compile Include="proxybot_ns\StarCraftAgent.cs" />
+    <Compile Include="proxybot_ns\StarCraftFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="proxybot\StarCraftFrame.Designer.cs">
+    <Compile Include="proxybot_ns\StarCraftFrame.Designer.cs">
       <DependentUpon>StarCraftFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="proxybot\StartingLocation.cs" />
-    <Compile Include="proxybot\TechType.cs" />
-    <Compile Include="proxybot\Unit.cs" />
-    <Compile Include="proxybot\UnitType.cs" />
-    <Compile Include="proxybot\UpgradeType.cs" />
+    <Compile Include="proxybot_ns\StartingLocation.cs" />
+    <Compile Include="proxybot_ns\TechType.cs" />
+    <Compile Include="proxybot_ns\Unit.cs" />
+    <Compile Include="proxybot_ns\UnitType.cs" />
+    <Compile Include="proxybot_ns\UpgradeType.cs" />
     <Compile Include="SupportClass.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +172,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="proxybot\StarCraftFrame.resx">
+    <EmbeddedResource Include="proxybot_ns\StarCraftFrame.resx">
       <DependentUpon>StarCraftFrame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

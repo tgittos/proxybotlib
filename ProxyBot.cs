@@ -144,6 +144,7 @@ namespace StarCraftBot_net
         private IAgent agent;
 		
 		/// <summary> Starts the proxy bot.</summary>
+        /* 
 		[STAThread]
 		public static void Main(System.String[] args)
 		{
@@ -164,7 +165,8 @@ namespace StarCraftBot_net
 				SupportClass.WriteStackTrace(e, Console.Error);
 			}
 		}
-		
+		*/
+
 		public ProxyBot(IAgent pAgent)
 		{
             agent = pAgent;
