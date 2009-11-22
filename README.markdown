@@ -1,13 +1,13 @@
 ProxyBotLib
 ===========
 
-A library for connecting a .NET based bot to the Starcraft Brood War API (http://code.google.com/p/bwapi/).
+A library for connecting a .NET based bot to the Starcraft Brood War API [http://code.google.com/p/bwapi/](http://code.google.com/p/bwapi/).
 Contains source for the BWAPI socket communication dll and the .NET proxy bot.
 
-Created for use with the EIS Starcraft AI competition (http://eis.ucsc.edu/StarCraftAICompetition)
+Created for use with the EIS Starcraft AI competition [http://eis.ucsc.edu/StarCraftAICompetition](http://eis.ucsc.edu/StarCraftAICompetition)
 
-Based on http://breakablec.redirectme.net/svn/repos/trunk/StarProxyBot_net/ 
-which is based on http://eis.ucsc.edu/StarCraftRemote
+Based on [http://breakablec.redirectme.net/svn/repos/trunk/StarProxyBot_net/](http://breakablec.redirectme.net/svn/repos/trunk/StarProxyBot_net/) 
+which is based on [http://eis.ucsc.edu/StarCraftRemote](http://eis.ucsc.edu/StarCraftRemote)
 
 Getting Started
 ---------------
