@@ -28,7 +28,7 @@ namespace StarCraftBot_net
 			}
 			
 		}
-		virtual public System.Collections.ArrayList StartingLocations
+		virtual public ArrayList StartingLocations
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace StarCraftBot_net
 			}
 			
 		}
-		virtual public System.Collections.ArrayList Units
+		virtual public ArrayList Units
 		{
 			get
 			{
@@ -44,7 +44,7 @@ namespace StarCraftBot_net
 			}
 			
 		}
-		virtual public System.Collections.ArrayList TechTypes
+		virtual public ArrayList TechTypes
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace StarCraftBot_net
 			}
 			
 		}
-		virtual public System.Collections.ArrayList UpgradeTypes
+		virtual public ArrayList UpgradeTypes
 		{
 			get
 			{
@@ -142,30 +142,6 @@ namespace StarCraftBot_net
 		private int maxCommandsPerMessage = 20;
 
         private IAgent agent;
-		
-		/// <summary> Starts the proxy bot.</summary>
-        /* 
-		[STAThread]
-		public static void Main(System.String[] args)
-		{
-            StarCraftAgent agent = new StarCraftAgent();
-			ProxyBot proxyBot = new ProxyBot(agent);
-			
-			try
-			{
-				proxyBot.start();
-			}
-			catch (System.Net.Sockets.SocketException e)
-			{
-				SupportClass.WriteStackTrace(e, Console.Error);
-				System.Environment.Exit(0);
-			}
-			catch (System.Exception e)
-			{
-				SupportClass.WriteStackTrace(e, Console.Error);
-			}
-		}
-		*/
 
 		public ProxyBot(IAgent pAgent)
 		{

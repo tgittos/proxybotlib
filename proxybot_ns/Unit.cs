@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 namespace starcraftbot.proxybot
 {
 	/// <summary> Represents a unit in StarCraft.
@@ -8,178 +9,47 @@ namespace starcraftbot.proxybot
 	/// </summary>
 	public class Unit
 	{
-		virtual public int PlayerID
-		{
-			get
-			{
-				return playerID;
-			}
-			
-			set
-			{
-				this.playerID = value;
-			}
-			
-		}
-		virtual public UnitType Type
-		{
-			get
-			{
-				return type;
-			}
-			
-			set
-			{
-				this.type = value;
-			}
-			
-		}
-		virtual public int X
-		{
-			get
-			{
-				return x;
-			}
-			
-			set
-			{
-				this.x = value;
-			}
-			
-		}
-		virtual public int Y
-		{
-			get
-			{
-				return y;
-			}
-			
-			set
-			{
-				this.y = value;
-			}
-			
-		}
-		virtual public int HitPoints
-		{
-			get
-			{
-				return hitPoints;
-			}
-			
-			set
-			{
-				this.hitPoints = value;
-			}
-			
-		}
-		virtual public int Shields
-		{
-			get
-			{
-				return shields;
-			}
-			
-			set
-			{
-				this.shields = value;
-			}
-			
-		}
-		virtual public int Energy
-		{
-			get
-			{
-				return energy;
-			}
-			
-			set
-			{
-				this.energy = value;
-			}
-			
-		}
-		virtual public int OrderTimer
-		{
-			get
-			{
-				return orderTimer;
-			}
-			
-			set
-			{
-				this.orderTimer = value;
-			}
-			
-		}
-		virtual public int Order
-		{
-			get
-			{
-				return order;
-			}
-			
-			set
-			{
-				this.order = value;
-			}
-			
-		}
-		virtual public int Resources
-		{
-			get
-			{
-				return resources;
-			}
-			
-		}
-		
 		/// <summary>a unique identifier for referencing the unit </summary>
-        private int id;
-
-        public int ID
-        {
-            get { return id; }
-        }
+        public int ID { get; private set; }
 		
 		/// <summary>the player the unit belongs too </summary>
-		private int playerID;
+        public int PlayerID { get; private set; }
 		
 		/// <summary>the unit type </summary>
-		private UnitType type;
+        public UnitType Type { get; private set; }
 		
 		/// <summary>x tile position </summary>
-		private int x;
+        public int X { get; private set; }
 		
 		/// <summary>y tile position </summary>
-		private int y;
+        public int Y { get; private set; }
 		
 		/// <summary>unit hit points </summary>
-		private int hitPoints;
+        public int HitPoints { get; private set; }
 		
 		/// <summary>unit shields </summary>
-		private int shields;
+        public int Shields { get; private set; }
 		
 		/// <summary>unit energy </summary>
-		private int energy;
+        public int Energy { get; private set; }
 		
 		/// <summary>an internal timer used in StarCraft </summary>
-		private int orderTimer;
+        public int OrderTimer { get; private set; }
 		
 		/// <summary> Order type currently being executed by the unit.</summary>
 		/// <See>  the Order enum in Constants.java </See>
-		private int order;
+        public int Order { get; private set; }
 		
 		/// <summary>resources remaining, mineral count for patches, and gas for geysers </summary>
-		private int resources;
+        public int Resources { get; private set; }
 		
 		/// <summary> Parses the unit data.</summary>
 		//UPGRADE_TODO: Class 'java.util.HashMap' was converted to 'System.Collections.Hashtable' which has a different behavior. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-		public static System.Collections.ArrayList getUnits(System.String unitData,  Dictionary<int, UnitType> types )
+		public static ArrayList getUnits(String unitData,  Dictionary<int, UnitType> types )
 		{
-			System.Collections.ArrayList units = new System.Collections.ArrayList();
+			ArrayList units = new ArrayList();
 			
-			System.String[] unitDatas = unitData.Split(":".ToCharArray());
+			String[] unitDatas = unitData.Split(":".ToCharArray());
 			bool first = true;
 			
 			foreach(String data in unitDatas)
@@ -190,20 +60,21 @@ namespace starcraftbot.proxybot
 					continue;
 				}
 				
-				System.String[] attributes = data.Split(";".ToCharArray());
-				Unit unit = new Unit();
-				unit.id = System.Int32.Parse(attributes[0]);
-				unit.playerID = System.Int32.Parse(attributes[1]);
-                //TODO:Check
-				unit.type = types[System.Int32.Parse(attributes[2])];
-				unit.x = System.Int32.Parse(attributes[3]);
-				unit.y = System.Int32.Parse(attributes[4]);
-				unit.hitPoints = System.Int32.Parse(attributes[5]);
-				unit.shields = System.Int32.Parse(attributes[6]);
-				unit.energy = System.Int32.Parse(attributes[7]);
-				unit.orderTimer = System.Int32.Parse(attributes[8]);
-				unit.order = System.Int32.Parse(attributes[9]);
-				unit.resources = System.Int32.Parse(attributes[10]);
+				String[] attributes = data.Split(";".ToCharArray());
+                Unit unit = new Unit
+                {
+                    ID = System.Int32.Parse(attributes[0]),
+                    PlayerID = System.Int32.Parse(attributes[1]),
+                    Type = types[System.Int32.Parse(attributes[2])],
+                    X = System.Int32.Parse(attributes[3]),
+                    Y = System.Int32.Parse(attributes[4]),
+                    HitPoints = System.Int32.Parse(attributes[5]),
+                    Shields = System.Int32.Parse(attributes[6]),
+                    Energy = System.Int32.Parse(attributes[7]),
+                    OrderTimer = System.Int32.Parse(attributes[8]),
+                    Order = System.Int32.Parse(attributes[9]),
+                    Resources = System.Int32.Parse(attributes[10])
+                };
 				
 				units.Add(unit);
 			}
@@ -213,25 +84,16 @@ namespace starcraftbot.proxybot
 		
 		public virtual double distance(Unit unit)
 		{
-			double dx = unit.x - x;
-			double dy = unit.y - y;
+			double dx = unit.X - X;
+			double dy = unit.Y - Y;
 			
-			return System.Math.Sqrt(dx * dx + dy * dy);
-		}
-		
-		public virtual int getID()
-		{
-			return id;
-		}
-		
-		public virtual void  setID(int ID)
-		{
-			this.id = ID;
+            //Manhattan distance
+			return Math.Sqrt(dx * dx + dy * dy);
 		}
 		
 		public override System.String ToString()
 		{
-			return "ID:" + id + " player:" + playerID + " type:" + type.Name + " x:" + x + " y:" + y + " hitPoints:" + hitPoints + " shields:" + shields + " enemy:" + energy + " orderTimer:" + orderTimer + " order:" + order + " resource:" + resources;
+			return "ID:" + ID + " player:" + PlayerID + " type:" + Type.Name + " x:" + X + " y:" + X + " hitPoints:" + HitPoints + " shields:" + Shields + " enemy:" + Energy + " orderTimer:" + OrderTimer + " order:" + Order + " resource:" + Resources;
 		}
 	}
 }
