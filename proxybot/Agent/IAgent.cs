@@ -7,6 +7,6 @@ namespace StarCraftBot_net.proxybot.Agent
 {
     public interface IAgent
     {
-        void Start();
+        void Start(ProxyBot pProxy);
     }
 }

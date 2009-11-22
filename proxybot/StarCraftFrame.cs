@@ -11,13 +11,13 @@ namespace StarCraftBot_net.proxybot
 {
     public partial class StarCraftFrame : Form
     {
-        public StarCraftFrame()
+        public StarCraftFrame(ProxyBot pProxy)
         {
             InitializeComponent();
 
 
 
-            proxyBot = ProxyBot.Proxy;
+            proxyBot = pProxy;
 
 
             this.Paint += new System.Windows.Forms.PaintEventHandler(StarCraftFrame_Paint);

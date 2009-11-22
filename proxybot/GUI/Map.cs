@@ -9,15 +9,18 @@ namespace StarCraftBot_net.proxybot.GUI
 {
     class Map : SupportClass.ThreadClass
 	{
-        public Map()
+        ProxyBot proxyBot;
+
+        public Map(ProxyBot pProxy)
 		{
+            proxyBot = pProxy;
 		}
 		override public void Run()
 		{
             StarCraftFrame frame;
             Thread formThread = new Thread(delegate()
             {
-                frame = new StarCraftFrame();
+                frame = new StarCraftFrame(proxyBot);
                 Application.Run(frame);
             });
             //Terminate with application

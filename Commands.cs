@@ -69,6 +69,11 @@ namespace StarCraftBot_net
                 this.Arg1 = pArg1;
                 this.Arg2 = pArg2;
             }
+
+            public override string ToString()
+            {
+                return ":" + (int)CommandID + ";" + UnitID + ";" + Arg0 + ";" + Arg1 + ";" + Arg2;
+            }
         }
 
         /// <summary> Tells the unit to attack move the specific location (in tile coordinates).

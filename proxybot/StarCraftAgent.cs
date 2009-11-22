@@ -10,13 +10,14 @@ namespace starcraftbot.proxybot
 	{
         private ProxyBot proxyBot;
 
-        public StarCraftAgent(ProxyBot pProxy)
+        public StarCraftAgent()
         {
-            this.proxyBot = pProxy;
         }
-		
-		public virtual void Start()
+
+        public virtual void Start(ProxyBot pProxy)
 		{
+            this.proxyBot = pProxy;
+
 			int playerID = proxyBot.PlayerID;
 			
 			while (true)

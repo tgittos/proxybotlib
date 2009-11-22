@@ -20,15 +20,6 @@ namespace StarCraftBot_net
 	/// </summary>
 	public class ProxyBot
 	{
-		/// <summary> Returns the singleton instance of ProxyBot.</summary>
-		public static ProxyBot Proxy
-		{
-			get
-			{
-				return thisInstance;
-			}
-			
-		}
 		virtual public Map Map
 		{
 			get
@@ -149,15 +140,15 @@ namespace StarCraftBot_net
 		
 		/// <summary>message number of commands to send to starcraft per response </summary>
 		private int maxCommandsPerMessage = 20;
-		
-		/// <summary>ProxyBot is a singleton </summary>
-		private static ProxyBot thisInstance;
+
+        private IAgent agent;
 		
 		/// <summary> Starts the proxy bot.</summary>
 		[STAThread]
-		public static void  Main(System.String[] args)
+		public static void Main(System.String[] args)
 		{
-			ProxyBot proxyBot = new ProxyBot();
+            StarCraftAgent agent = new StarCraftAgent();
+			ProxyBot proxyBot = new ProxyBot(agent);
 			
 			try
 			{
@@ -174,9 +165,9 @@ namespace StarCraftBot_net
 			}
 		}
 		
-		public ProxyBot()
+		public ProxyBot(IAgent pAgent)
 		{
-			thisInstance = this;
+            agent = pAgent;
 		}
 
        
@@ -238,12 +229,11 @@ namespace StarCraftBot_net
 			// display game state?
 			if (showGUI)
 			{
-                new StarCraftBot_net.proxybot.GUI.Map().Run();
+                new StarCraftBot_net.proxybot.GUI.Map(this).Run();
 			}
 
             //Start the agent
-            StarCraftAgent agent = new StarCraftAgent(this);
-            new ThreadedAgent(agent).Start();
+            new ThreadedAgent(agent, this).Start();
 			
 			// begin the communication loop
 			while (playerData != null)
@@ -263,23 +253,21 @@ namespace StarCraftBot_net
 				lock (commandQueue.SyncRoot)
 				{
 					int commandsAdded = 0;
-					
 					while (commandQueue.Count > 0 && commandsAdded < maxCommandsPerMessage)
 					{
 						commandsAdded++;
-						System.Object tempObject;
-						tempObject = commandQueue[commandQueue.Count - 1];
-						commandQueue.RemoveAt(commandQueue.Count - 1);
-						StarCraftBot_net.Commands.Command command = (StarCraftBot_net.Commands.Command)tempObject;
-                        string commandString = ":" + (int)command.CommandID + ";" + command.UnitID + ";" + command.Arg0 + ";" + command.Arg1 + ";" + command.Arg2;
-                        commandData.Append(commandString);
+                        //Remove the next command
+                        int nextCommandIndex = commandQueue.Count - 1;
+                        var command = (Commands.Command)commandQueue[nextCommandIndex];
+						commandQueue.RemoveAt(nextCommandIndex);
+                        //Add it to the data to be sent to StarCraft
+                        commandData.Append(command.ToString());
 					}
 				}
 				
 				// send commands to the starcraft client
-				sbyte[] temp_sbyteArray2;
-				temp_sbyteArray2 = SupportClass.ToSByteArray(SupportClass.ToByteArray(commandData.ToString()));
-				clientSocket.GetStream().Write(SupportClass.ToByteArray(temp_sbyteArray2), 0, temp_sbyteArray2.Length);
+                byte[] commandBytes = Encoding.ASCII.GetBytes(commandData.ToString());
+                outputStream.Write(commandBytes, 0, commandBytes.Length);
 			}
 		}
 
@@ -291,7 +279,6 @@ namespace StarCraftBot_net
                 Console.Out.WriteLine(unit);
             }
         }
-
         private void logStartStateToConsole()
         {
             Console.Out.WriteLine(startingLocations.ToStarcraftString());
@@ -330,9 +317,11 @@ namespace StarCraftBot_net
         }
 		
 		//UPGRADE_ISSUE: The following fragment of code could not be parsed and was not converted. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1156'"
+        /*
         public Dictionary<int, UnitType> getUnitTypes()
         {
             return unitTypes;
         }
+         */
 	}
 }
