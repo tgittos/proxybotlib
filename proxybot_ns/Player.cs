@@ -8,161 +8,72 @@ namespace starcraftbot.proxybot
 	/// </summary>
 	public class Player
 	{
+        /// <summary>the player identifier </summary>
+        public int PlayerID { get; set; }
+
+        /// <summary>the player's race, see Constants.java for definitions </summary>
+        public int Race { get; set; }
+
+        /// <summary>current mineral supply </summary>
+        public int Minerals { get; private set; }
+
+        /// <summary>current gas supply </summary>
+        public int Gas { get; private set; }
+
+        /// <summary>amount of supply used by the player </summary>
+        public int SupplyUsed { get; private set; }
+
+        /// <summary>amount of supply provided by the player </summary>
+        public int SupplyTotal { get; private set; }
+
+        /// <summary>array of the unit types the bot can afford that it has the tech for </summary>
+        public bool[] UnitProduction { get; private set; }
+
+        /// <summary>array of the tech types the bot can afford that it has the tech for </summary>
+        public bool[] TechProduction { get; private set; }
+
+        /// <summary>array of the upgrade types the bot can afford that it has the tech for </summary>
+        public bool[] UpgradeProduction { get; private set; }
+
 		public Player()
 		{
-			InitBlock();
+            UnitProduction = new bool[Constants.NumUnitTypes];
+            TechProduction = new bool[Constants.NumTechTypes];
+            UpgradeProduction = new bool[Constants.NumUpgradeTypes];
 		}
-		private void  InitBlock()
-		{
-			unitProduction = new bool[Constants.NumUnitTypes];
-			techProduction = new bool[Constants.NumTechTypes];
-			upgradeProduction = new bool[Constants.NumUpgradeTypes];
-		}
-		virtual public int Minerals
-		{
-			get
-			{
-				return minerals;
-			}
-			
-		}
-		virtual public int Gas
-		{
-			get
-			{
-				return gas;
-			}
-			
-		}
-		virtual public int SupplyUsed
-		{
-			get
-			{
-				return supplyUsed;
-			}
-			
-		}
-		virtual public int SupplyTotal
-		{
-			get
-			{
-				return supplyTotal;
-			}
-			
-		}
-		virtual public int PlayerID
-		{
-			get
-			{
-				return playerID;
-			}
-			
-			set
-			{
-				this.playerID = value;
-			}
-			
-		}
-		virtual public int Race
-		{
-			get
-			{
-				return race;
-			}
-			
-			set
-			{
-				this.race = value;
-			}
-			
-		}
-		virtual public bool[] UnitProduction
-		{
-			get
-			{
-				return unitProduction;
-			}
-			
-		}
-		virtual public bool[] TechProduction
-		{
-			get
-			{
-				return techProduction;
-			}
-			
-		}
-		virtual public bool[] UpgradeProduction
-		{
-			get
-			{
-				return upgradeProduction;
-			}
-			
-		}
-		
-		/// <summary>the player identifier </summary>
-		private int playerID;
-		
-		/// <summary>the player's race, see Constants.java for definitions </summary>
-		private int race;
-		
-		/// <summary>current mineral supply </summary>
-		private int minerals;
-		
-		/// <summary>current gas supply </summary>
-		private int gas;
-		
-		/// <summary>amount of supply used by the player </summary>
-		private int supplyUsed;
-		
-		/// <summary>amount of supply provided by the player </summary>
-		private int supplyTotal;
-		
-		/// <summary>array of the unit types the bot can afford that it has the tech for </summary>
-		//UPGRADE_NOTE: The initialization of  'unitProduction' was moved to method 'InitBlock'. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1005'"
-		private bool[] unitProduction;
-		
-		/// <summary>array of the tech types the bot can afford that it has the tech for </summary>
-		//UPGRADE_NOTE: The initialization of  'techProduction' was moved to method 'InitBlock'. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1005'"
-		private bool[] techProduction;
-		
-		/// <summary>array of the upgrade types the bot can afford that it has the tech for </summary>
-		//UPGRADE_NOTE: The initialization of  'upgradeProduction' was moved to method 'InitBlock'. "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1005'"
-		private bool[] upgradeProduction;
 		
 		/// <summary> Updates the players attributes given the command data.
 		/// 
 		/// Expects a message of the form "status;minerals;gas;supplyUsed;SupplyTotal:..."
 		/// </summary>
-		public virtual void  update(System.String playerData)
+		public virtual void update(String playerData)
 		{
-            System.String[] attributes = playerData.Split(":".ToCharArray())[0].Split(";".ToCharArray());
+            String[] attributes = playerData.Split(';');
 			
-			minerals = System.Int32.Parse(attributes[1]);
-			gas = System.Int32.Parse(attributes[2]);
-			supplyUsed = System.Int32.Parse(attributes[3]);
-			supplyTotal = System.Int32.Parse(attributes[4]);
+			Minerals = System.Int32.Parse(attributes[1]);
+			Gas = System.Int32.Parse(attributes[2]);
+			SupplyUsed = System.Int32.Parse(attributes[3]);
+			SupplyTotal = System.Int32.Parse(attributes[4]);
 			
-			for (int i = 0; i < unitProduction.Length; i++)
+			for (int i = 0; i < UnitProduction.Length; i++)
 			{
-				unitProduction[i] = attributes[5][i] == '1';
+				UnitProduction[i] = attributes[5][i] == '1';
 			}
 			
-			for (int i = 0; i < techProduction.Length; i++)
+			for (int i = 0; i < TechProduction.Length; i++)
 			{
-				techProduction[i] = attributes[6][i] == '1';
+				TechProduction[i] = attributes[6][i] == '1';
 			}
 			
-			for (int i = 0; i < upgradeProduction.Length; i++)
+			for (int i = 0; i < UpgradeProduction.Length; i++)
 			{
-				upgradeProduction[i] = attributes[7][i] == '1';
+				UpgradeProduction[i] = attributes[7][i] == '1';
 			}
 		}
 		
 		public override System.String ToString()
 		{
-			return "mins:" + minerals + " gas:" + gas + " supplyUsed:" + supplyUsed + " supplyTotal:" + supplyTotal;
+			return "mins:" + Minerals + " gas:" + Gas + " supplyUsed:" + SupplyUsed + " supplyTotal:" + SupplyTotal;
 		}
 	}
 }

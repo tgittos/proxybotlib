@@ -42,7 +42,7 @@ namespace StarCraftBot_net.proxybot
 		private ProxyBot proxyBot;
 		
 		/// <summary>pixels per map tile, StarCraft is 32 </summary>
-		private int tileSize = 6;
+		private int tileSize = 3;
 		
 		/// <summary>height of the resource panel </summary>
 		private int panelHeight = 30;
@@ -109,7 +109,7 @@ namespace StarCraftBot_net.proxybot
                 SolidBrush sb = new SolidBrush(System.Drawing.Color.FromArgb(0, 255, 255));
                 foreach (Unit unit in proxyBot.Units)
                 {
-                    if (unit.Type.Id == Constants.Resource_Mineral_Field)
+                    if (unit.Type.ID == Constants.Resource_Mineral_Field)
                     {
                         g.FillRectangle(sb, unit.X * tileSize, panelHeight + unit.Y * tileSize, tileSize, tileSize);
                     }
@@ -122,7 +122,7 @@ namespace StarCraftBot_net.proxybot
                 SolidBrush sb = new SolidBrush(System.Drawing.Color.FromArgb(0, 128, 0));
                 foreach (Unit unit in proxyBot.Units)
                 {
-                    if (unit.Type.Id == Constants.Resource_Vespene_Geyser)
+                    if (unit.Type.ID == Constants.Resource_Vespene_Geyser)
                     {
                         g.FillRectangle(sb, unit.X * tileSize, panelHeight + unit.Y * tileSize, unit.Type.TileWidth * tileSize, unit.Type.TileHeight * tileSize);
                     }

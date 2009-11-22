@@ -94,22 +94,22 @@ namespace StarCraftBot_net
 		}
 		
 		/// <summary>allow the user to control units </summary>
-		public static bool allowUserControl = true;
+		public bool allowUserControl = true;
 		
 		/// <summary>turn on complete information </summary>
-		public static bool completeInformation = true;
+		public bool completeInformation = true;
 		
 		/// <summary>log a verbose amount of data </summary>
-		public static bool verboseLogging = false;
+		public bool verboseLogging = false;
 		
 		/// <summary>bring up the ProxyBot GUI </summary>
-		public static bool showGUI = true;
+		public bool showGUI = true;
 		
 		/// <summary>Start up the StarCraft agent class </summary>
-		public static bool runAgent = true;
+		public bool runAgent = true;
 		
 		/// <summary>port to start the server socket on </summary>
-		public static int port = 13337;
+		public int port = 13337;
 		
 		/// <summary>map information </summary>
 		private Map map;
@@ -216,11 +216,12 @@ namespace StarCraftBot_net
 			// begin the communication loop
 			while (playerData != null)
 			{
-				String unitData = starcraftStream.ReadLine();
-				
+				String unitUpdateData = starcraftStream.ReadLine();
+                String playerUpdateData = unitUpdateData.Split(':')[0];
 				// update game state
-				player.update(unitData);
-				units = Unit.getUnits(unitData, unitTypes);
+                
+				player.update(playerUpdateData);
+				units = Unit.getUnits(unitUpdateData, unitTypes);
 				if (verboseLogging)
 				{
                     logAllUnitsToConsole();

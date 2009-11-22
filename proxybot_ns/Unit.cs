@@ -49,7 +49,7 @@ namespace starcraftbot.proxybot
 		{
 			ArrayList units = new ArrayList();
 			
-			String[] unitDatas = unitData.Split(":".ToCharArray());
+			String[] unitDatas = unitData.Split(':');
 			bool first = true;
 			
 			foreach(String data in unitDatas)

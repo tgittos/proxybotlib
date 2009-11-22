@@ -47,7 +47,7 @@ namespace starcraftbot.proxybot
 							foreach(Unit patch in proxyBot.Units)
 							{
 								
-								if (patch.Type.Id == Constants.Resource_Mineral_Field)
+								if (patch.Type.ID == Constants.Resource_Mineral_Field)
 								{
 									
 									double distance = (0.5 + SupportClass.Random.NextDouble()) * unit.distance(patch);
