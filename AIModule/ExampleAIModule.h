@@ -8,6 +8,12 @@ public:
   virtual void onFrame();
   virtual void onRemove(BWAPI::Unit* unit);
   virtual bool onSendText(std::string text);
+  virtual void ExampleAIModule::onUnitShow(BWAPI::Unit* unit);
+  virtual void ExampleAIModule::onUnitHide(BWAPI::Unit* unit);
+  virtual void ExampleAIModule::onUnitMorph(BWAPI::Unit* unit);
+  virtual void ExampleAIModule::onUnitDestroy(BWAPI::Unit* unit);
+  virtual void ExampleAIModule::onUnitCreate(BWAPI::Unit* unit);
+
 /*
   void showStats(); //not part of BWAPI::AIModule
   void showPlayers();

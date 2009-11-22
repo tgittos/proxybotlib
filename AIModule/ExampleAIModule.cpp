@@ -18,6 +18,9 @@ using namespace BWAPI;
 #include <sstream>
 #include <string>
 
+#pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "Netapi32.lib")
+
 /** port to connect to on the java side */
 #define PORTNUM 13337
 
@@ -864,6 +867,55 @@ void ExampleAIModule::onRemove(BWAPI::Unit* unit)
 bool ExampleAIModule::onSendText(std::string text)
 {
   return true;
+}
+void ExampleAIModule::onUnitCreate(BWAPI::Unit* unit)
+{
+  if (!Broodwar->isReplay())
+    Broodwar->printf("A %s [%x] has been created at (%d,%d)",unit->getType().getName().c_str(),unit,unit->getPosition().x(),unit->getPosition().y());
+  else
+  {
+    /*if we are in a replay, then we will print out the build order
+    (just of the buildings, not the units).*/
+    if (unit->getType().isBuilding() && unit->getPlayer()->isNeutral()==false)
+    {
+      int seconds=Broodwar->getFrameCount()/24;
+      int minutes=seconds/60;
+      seconds%=60;
+      Broodwar->printf("%.2d:%.2d: %s creates a %s",minutes,seconds,unit->getPlayer()->getName().c_str(),unit->getType().getName().c_str());
+    }
+  }
+}
+void ExampleAIModule::onUnitDestroy(BWAPI::Unit* unit)
+{
+  if (!Broodwar->isReplay())
+    Broodwar->printf("A %s [%x] has been destroyed at (%d,%d)",unit->getType().getName().c_str(),unit,unit->getPosition().x(),unit->getPosition().y());
+}
+void ExampleAIModule::onUnitMorph(BWAPI::Unit* unit)
+{
+  if (!Broodwar->isReplay())
+    Broodwar->printf("A %s [%x] has been morphed at (%d,%d)",unit->getType().getName().c_str(),unit,unit->getPosition().x(),unit->getPosition().y());
+  else
+  {
+    /*if we are in a replay, then we will print out the build order
+    (just of the buildings, not the units).*/
+    if (unit->getType().isBuilding() && unit->getPlayer()->isNeutral()==false)
+    {
+      int seconds=Broodwar->getFrameCount()/24;
+      int minutes=seconds/60;
+      seconds%=60;
+      Broodwar->printf("%.2d:%.2d: %s morphs a %s",minutes,seconds,unit->getPlayer()->getName().c_str(),unit->getType().getName().c_str());
+    }
+  }
+}
+void ExampleAIModule::onUnitShow(BWAPI::Unit* unit)
+{
+  if (!Broodwar->isReplay())
+    Broodwar->printf("A %s [%x] has been spotted at (%d,%d)",unit->getType().getName().c_str(),unit,unit->getPosition().x(),unit->getPosition().y());
+}
+void ExampleAIModule::onUnitHide(BWAPI::Unit* unit)
+{
+  if (!Broodwar->isReplay())
+    Broodwar->printf("A %s [%x] was last seen at (%d,%d)",unit->getType().getName().c_str(),unit,unit->getPosition().x(),unit->getPosition().y());
 }
 
 /**
