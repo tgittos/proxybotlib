@@ -114,6 +114,9 @@ namespace ProxyBotLib
 		
 		/// <summary>port to start the server socket on </summary>
 		public int port = 13337;
+
+        public delegate void ProxyBotDelegate(EventArgs e);
+        public event ProxyBotDelegate OnStarcraftConnected;
 		
 		/// <summary>map information </summary>
 		private MapData map;
@@ -230,6 +233,12 @@ namespace ProxyBotLib
             if (runAgent)
             {
                 new ThreadedAgent(agent, this).Start();
+            }
+
+            //Dispatch event
+            if (OnStarcraftConnected != null)
+            {
+                OnStarcraftConnected(new EventArgs());
             }
 
             DateTime lastRedraw = DateTime.Now;

@@ -18,8 +18,6 @@ namespace ProxyBotLib.GUI
         {
             InitializeComponent();
 
-
-
             proxyBot = pProxy;
 
             this.Paint += new System.Windows.Forms.PaintEventHandler(StarCraftFrame_Paint);
