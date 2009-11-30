@@ -128,7 +128,7 @@ namespace ProxyBotLib
 		private Player enemy = new Player();
 		
 		/// <summary>StarCraft unit types </summary>
-        private Dictionary<int, UnitType> unitTypes;
+        public Dictionary<int, UnitType> unitTypes;
 		
 		/// <summary>a list of the starting locations </summary>
 		private System.Collections.ArrayList startingLocations;

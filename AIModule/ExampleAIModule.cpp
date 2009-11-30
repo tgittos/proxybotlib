@@ -607,7 +607,7 @@ void handleCommand(int command, int unitID, int arg0, int arg1, int arg2)
 			break;
 		// virtual bool train(UnitType type) = 0;
 		case 5:
-			if (getUnitType(arg0) == NULL) {
+			if (getUnitType(arg0) < 0) {
 				Broodwar->sendText("Invalid Command, Unit:%d train(%d)", unitID, arg0);
 			}
 			else {
@@ -617,6 +617,7 @@ void handleCommand(int command, int unitID, int arg0, int arg1, int arg2)
 			break;
 		// virtual bool build(TilePosition position, UnitType type) = 0;
 		case 6:
+			Broodwar->drawBox(CoordinateType::Map, 32*arg0, 32*arg1, 32*arg0 + 96, 32*arg1 + 64, Colors::Yellow, true);
 			if (getUnitType(arg2) == NULL) {
 				Broodwar->sendText("Invalid Command, Unit:%d build(%d, %d, %d)", unitID, arg0, arg1, arg2);
 			}
